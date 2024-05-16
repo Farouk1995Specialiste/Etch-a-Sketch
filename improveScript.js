@@ -21,8 +21,12 @@ function setCurrentSize(newSize){
 }
 
 
-sizeSlider.onchange = (e) => changeSize(e.target.value)
+sizeSlider.onchange = (e) => {
+    changeSize(e.target.value)
+   // console.log(e.target.value)
+}
 clear.addEventListener('click',reloadGrid)
+
 eraser.addEventListener('click',()=> eraseSquare(square));
 black.addEventListener('click',()=> blackColor(square));
 random.addEventListener('click',()=>randomColor(square));
@@ -39,7 +43,7 @@ function changeSize(value){
 
 //reload grid 
 function reloadGrid(){
- clearAll()
+clearAll()
  createGrid(currentSize)
 }
 // create grid
@@ -69,9 +73,6 @@ function clearAll(){
     grid.innerHTML=``;
     }
 // 
-
-
-
 
 // Random Color
 function randomColor(square){
@@ -108,6 +109,7 @@ function eraseSquare(square){
 
 window.onload =() =>{
     createGrid(DEFAULT_SIZE);
+    updateSizeValue(DEFAULT_SIZE)
 }
   
 
