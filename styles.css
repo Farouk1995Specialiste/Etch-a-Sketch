@@ -50,7 +50,7 @@ h1{
     margin-top: 2rem;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
-.btn{
+.mode-button-unactivate{
     border: none;
     padding: 10px 40px;
     margin: 0.5rem;
@@ -61,10 +61,15 @@ h1{
     transition: 0.3s;
 }
 
-.btn:hover{
+.mode-button-activate{
     background:black;
     color:white;
     transform: scale(1.1);
+     border: none;
+    padding: 10px 40px;
+    margin: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 #grid{
@@ -82,7 +87,7 @@ h1{
 }
 
 .square {
-    border: 1px solid black;
+    border: 1px solid var(--primary-light);
     flex: 1;
 }
 

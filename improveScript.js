@@ -1,8 +1,7 @@
-const black=document.getElementById('black');
-const choose=document.getElementById('choose');
-const random=document.getElementById('random');
-const clear= document.getElementById('clear')
-const eraser=document.getElementById('eraser')
+const blackBtn=document.getElementById('black');
+const rainbowBtn=document.getElementById('random');
+const clearbtn= document.getElementById('clear')
+const eraserBtn=document.getElementById('eraser')
 let grid=document.getElementById('grid')  ;
 const sizeSlider=document.getElementById('sizeSlider');
 const size = document.getElementById('size');
@@ -14,7 +13,10 @@ let square;
 const DEFAULT_SIZE=32;
 
 let currentSize=DEFAULT_SIZE;
-
+let rainbow_mode = false ;
+let black_mode = false;
+let eraser_mode = false;
+let clear_mode= false;
 // SET CURRENT SIZE
 function setCurrentSize(newSize){
     currentSize=newSize;
@@ -25,15 +27,69 @@ sizeSlider.onchange = (e) => {
     changeSize(e.target.value)
    // console.log(e.target.value)
 }
-clear.addEventListener('click',reloadGrid)
+clearbtn.addEventListener('click',reloadGrid)
+clearbtn.addEventListener('click',(e)=>toglleMode(e.target))
 
-eraser.addEventListener('click',()=> eraseSquare(square));
-black.addEventListener('click',()=> blackColor(square));
-random.addEventListener('click',()=>randomColor(square));
+eraserBtn.addEventListener('click',()=> eraseSquare(square));
+eraserBtn.addEventListener('click',(e)=>toglleMode(e.target));
 
+blackBtn.addEventListener('click',()=> blackColor(square));
+blackBtn.addEventListener('click',(e)=>toglleMode(e.target))
 
+rainbowBtn.addEventListener('click',(e)=>{toglleMode(e.target)});
+rainbowBtn.addEventListener('click',()=>randomColor(square));
 
-
+function toglleMode (node){
+   const modeButtons = [rainbowBtn ,blackBtn ,eraserBtn,clearbtn]
+   //TOGLE NODE
+   if(node.id ==="random"){
+     rainbow_mode =!rainbow_mode;
+        node.classList.toggle('mode-button-unactivate', !rainbow_mode);
+        node.classList.toggle('mode-button-activate', rainbow_mode);
+   }
+   if(node.id ==="black"){
+    console.log(node.id)
+     black_mode =!black_mode;
+     node.classList.toggle('mode-button-unactivate',!black_mode);
+     node.classList.toggle('mode-button-activate',black_mode)
+   }
+   if(node.id==='clear'){
+    clear_mode =!clear_mode;
+    node.classList.toggle('mode-button-unactivate',!clear_mode);
+    node.classList.toggle('mode-button-activate',clear_mode);
+   }
+   if(node.id==='eraser'){
+    eraser_mode =!eraser_mode;
+    node.classList.toggle('mode-button-unactivate',!eraser_mode);
+    node.classList.toggle('mode-button-activate',eraser_mode);
+   }
+   //DESABLE ALL MODE BESIDE NODE
+   modeButtons.forEach((button) =>{
+    if (button !== node){
+      
+    if(button.id ==='random' && rainbow_mode){
+        rainbow_mode ===false;
+        button.classList.toggle('mode-button-activate',false)
+        button.classList.toggle("mode-button-unactivate",true);
+    }
+    if(button.id ==='clear' && clear_mode){
+        clear_mode=false;
+        button.classList.toggle('mode-button-activate',false)
+        button.classList.toggle("mode-button-unactivate",true);
+    }
+    if(button.id ==='black' && black_mode){
+        black_mode= false;
+        button.classList.toggle('mode-button-activate',false);
+        button.classList.toggle("mode-button-unactivate",true);
+    }
+  if (button.id === 'eraser' && eraser_mode){
+    eraser_mode =false;
+    button.classList.toggle('mode-button-activate',false);
+    button.classList.toggle("mode-button-unactivate",true);
+  }
+    }
+   })
+}
 // funchtion changeSize
 function changeSize(value){
     setCurrentSize(value)
@@ -112,12 +168,4 @@ window.onload =() =>{
     updateSizeValue(DEFAULT_SIZE)
 }
   
-
-
-
-
-
-
-
-
 
