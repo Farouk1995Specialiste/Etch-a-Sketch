@@ -1,0 +1,112 @@
+const black=document.getElementById('black');
+const choose=document.getElementById('choose');
+const random=document.getElementById('random');
+const clear= document.getElementById('clear')
+const eraser=document.getElementById('eraser')
+let grid=document.getElementById('grid')  
+// variables
+let square;
+let size=16;
+// create grid
+function createGrid(){
+    document.getElementById('size').innerHTML=`${size} X ${size}`
+   
+    for (let i=0;i<size;i++){
+          let row=document.createElement('div');
+          row.classList.add('row');
+          grid.appendChild(row)
+          for(let k = 0; k < size; k++) {
+             square = document.createElement('div');
+            square.classList.add('square')
+            row.appendChild(square);
+            square=document.querySelectorAll('.square');
+
+        }  
+        
+       }
+      
+    
+   //  clearAll()
+
+}
+createGrid()
+// Random Color
+function randomColor(square){
+   
+    return (
+     square.forEach((q)=>q.addEventListener('mouseover',(e)=>{
+     const red = Math.round(Math.random() * 255);
+     const blue = Math.round(Math.random() * 255);
+     const green = Math.round(Math.random() * 255);
+ e.target.style.backgroundColor=`rgb(${red},${green},${blue})`
+    
+     }))   
+ ) 
+ 
+ }
+
+ // black color
+ function blackColor(square){
+    return (
+        square.forEach(s=>s.addEventListener('mouseover',(e)=>{
+            e.target.style.backgroundColor='black'
+        }))
+    )
+}
+
+// choose grid
+function chooseGrid(){
+     size=parseInt(prompt('enter number between 2-99'))
+    console.log(size)
+        if(size  >0 && size  <= 100){
+        document.getElementById('size').innerHTML=`${size} X ${size}`;
+         grid.innerHTML=``;
+        createGrid()
+        } 
+        else if(isNaN(size) || size <0 ||size >100){
+            alert('please unter valid number between 2 and 100')
+            size=parseInt(prompt('enter number between 2-99'))
+            document.getElementById('size').innerHTML=`${size} X ${size}`;
+            grid.innerHTML=``;
+           createGrid()
+              }       
+}
+
+
+
+// clear
+function clearAll(){
+  return (
+  
+        square.forEach(s=>{
+           s.style.backgroundColor=`#dde3e6`
+         })
+
+     
+    
+    
+  )
+}
+function eraseSquare(square){
+    return (
+        square.forEach(s=>s.addEventListener('mouseover',(e)=>{
+            e.target.style.backgroundColor= `#dde3e6`
+        }))
+    )
+}
+
+clear.addEventListener('click',clearAll)
+eraser.addEventListener('click',()=> eraseSquare(square));
+choose.addEventListener('click',()=>chooseGrid());
+black.addEventListener('click',()=> blackColor(square));
+random.addEventListener('click',()=>randomColor(square));
+    
+  
+
+
+
+
+
+
+
+

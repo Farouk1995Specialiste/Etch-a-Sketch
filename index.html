@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css">
+    <script
+    src="https://kit.fontawesome.com/4c536a6bd5.js"
+    crossorigin="anonymous"></script>
+    <title>Etch-a-Sketch</title>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Etch-a-Sketch</h1>
+        <div id="size" class="size">16x16</div>
+        <input id="sizeSlider" type="range" value="16" min="2" max="100" />
+      <div class="etch">
+       <div class="btns">
+        <button id="clear" class="btn">Clear</button>
+        <button id="black" class="btn">black Color</button>
+        <button id="random" class="btn">random Color</button>
+        <button id="eraser" class="btn">Eraser</button>
+       </div>
+        <div id="grid">
+      </div>
+      <footer class="footer">
+        <p>
+          Copyright ©
+          <script>
+            document.write(new Date().getFullYear())
+          </script>
+        Farouk1995Specialiste
+        </p>
+        <a href="https://github.com/Farouk1995Specialiste" target="_blank">
+          <i class="fab fa-github"></i
+        ></a>
+      </footer>    
+     
+        </div>
+       
+    </div>
+    <script src="improveScript.js"></script>
+   
+</body>
+</html>

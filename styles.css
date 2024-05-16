@@ -1,0 +1,139 @@
+:root {
+    --primary-dark: #333;
+    --primary-light: #ededed;
+    --secondary-light: #fefefe;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  html {
+    /* footer support */
+    position: relative;
+    min-height: 100%;
+  }
+body{
+    background-color:#607d8b36;
+  
+    color: var(--primary-dark);
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+ }
+.container{
+ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+} 
+
+.etch{
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+}
+.btns{
+    display: flex;
+    flex-direction: column;
+    margin-right: 3rem;
+}
+h1{
+    color: brown;
+    font-size: 35px;
+    margin-left: 10rem;
+    margin-top: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.btn{
+    border: none;
+    padding: 10px 40px;
+    margin: 0.5rem;
+    background: #607d8b36;
+    color: black;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover{
+    background:black;
+    color:white;
+    transform: scale(1.1);
+}
+
+#grid{
+    height: 600px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    border:15px solid rgb(63 81 181);
+    border-radius: 14px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;}
+.row {
+    display: flex;
+    flex: 1;
+   
+}
+
+.square {
+    border: 1px solid black;
+    flex: 1;
+}
+
+.size{
+    font-weight: bold;
+    margin-top: 1rem;
+    text-align: right;
+    font-size: 25px;
+    margin-left: 10rem;
+}
+input[type='range'] {
+    -webkit-appearance: none;
+    background-color: var(--primary-light);
+    margin-left: 11rem;
+    margin-top: 0.5rem
+  }
+  
+  input[type='range']::-webkit-slider-runnable-track {
+    height: 10px;
+    border: 1px solid var(--primary-dark);
+    border-radius: 25px;
+    background: var(--secondary-light);
+  }
+  
+  input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 25px;
+    margin-top: -8px;
+    background: var(--primary-dark);
+  }
+  .footer {
+    position: absolute;
+    bottom: -33px;
+    left: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+  }
+  
+  .fa-github {
+    color: var(--primary-dark);
+    font-size: 24px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .fa-github:hover {
+    transform: rotate(360deg) scale(1.2);
+  }
