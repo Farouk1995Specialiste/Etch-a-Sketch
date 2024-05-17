@@ -9,7 +9,6 @@ const size = document.getElementById('size');
 
 
 // variables
-let square;
 const DEFAULT_SIZE=32;
 const DEFAULT_MODE='black'
 
@@ -30,11 +29,12 @@ currentMode =newMode
 let mousedown=false;
 document.body.onmousedown = () =>(mousedown=true);
 document.body.onmouseup = () => (mousedown =false);
-
 sizeSlider.onchange = (e) =>changeSize(e.target.value)
+
  rainbowBtn.onclick =(e) =>{
      toglleMode(e.target)
-    setcurrentMode('random')}  
+    setcurrentMode('random')
+}  
  blackBtn.onclick = (e) => {
     setcurrentMode('black');
     toglleMode(e.target)
@@ -44,6 +44,7 @@ clearbtn.addEventListener('click',(e)=>{
     reloadGrid(e);
     toglleMode(e.target);
 })
+
 eraserBtn.addEventListener('click',(e)=>{
       setcurrentMode('eraser')
      toglleMode(e.target)
@@ -126,14 +127,13 @@ function createGrid(size){
             row.appendChild(column);
             column.addEventListener('mousedown',changeColor);
             column.addEventListener('mouseover',changeColor)
-            square=document.querySelectorAll('.square');
-         //   console.log(square)
+          
         }  
         
        }
 }
 function changeColor(e) {
-    if (e.type === 'mouseover' && !mousedown) return
+    if ( e.type==='mouseover' &&  !mousedown) return
     if (currentMode === 'random') {
       const randomR = Math.floor(Math.random() * 256)
       const randomG = Math.floor(Math.random() * 256)
@@ -157,7 +157,7 @@ function clearAll(){
 window.onload =() =>{
     createGrid(DEFAULT_SIZE);
     updateSizeValue(DEFAULT_SIZE)
-    toglleMode(clearbtn)
+    toglleMode(blackBtn)
 }
   
 
